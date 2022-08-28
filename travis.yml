@@ -1,21 +1,28 @@
-dist: trusty
 
 language: java
 
+sudo: false
+
+cache:
+  directories:
+    - $HOME/.m2
+
+before_install:
+  - rm -rf ~/.m2/repository/kayak
+
+before_script:
+  - echo $HOME
+  - echo $JAVA_OPTS
+  - echo $MAVEN_OPTS
+
 jdk:
-  - openjdk18
+  - openjdk11
+
+os:
+  - linux
+
+script: ./mvnw clean install
 
 notifications:
   email:
       - matero@gmail.com
-
-install: /bin/true
-
-script:
-  - mvn clean
-  - mvn install
-
-cache:
-  directories:
-  - $HOME/.m2
-  
