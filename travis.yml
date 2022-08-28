@@ -1,0 +1,21 @@
+dist: trusty
+
+language: java
+
+jdk:
+  - openjdk18
+
+notifications:
+  email:
+      - matero@gmail.com
+
+install: /bin/true
+
+script:
+  - mvn clean
+  - mvn install
+
+cache:
+  directories:
+  - $HOME/.m2
+  
